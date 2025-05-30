@@ -3,21 +3,21 @@
 #include <sstream>
 #include <unordered_map>
 #include <string>
-#include "Phone.h"
+#include "../include/Phone.h"
 using namespace std;
 
 int main(){
   
   unordered_map<int, Phone> map;
-  ifstream file("cells.csv");
+  ifstream file("../data/cells.csv");
   string line;
 
   getline(file, line);
 
-  while(getline(file, line)){
+  // while(getline(file, line)){
 
 
-  }
+  // }
 
   file.close();  
   

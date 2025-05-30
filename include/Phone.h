@@ -1,4 +1,4 @@
-#indef PHONE_H
+#ifndef PHONE_H
 #define PHONE_H
 
 #include <string>

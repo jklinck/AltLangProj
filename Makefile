@@ -1,2 +1,4 @@
-Main: Main.cpp
-	g++ Main.cpp -o Main
+main: src/Main.cpp src/Phone.cpp
+	g++ -o main src/Main.cpp src/Phone.cpp
+
+
