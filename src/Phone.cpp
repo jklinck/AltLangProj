@@ -8,3 +8,7 @@ string ds, string dr, string fs, string pos) : oem(o), model(mod), launchAnnounc
 launchStatus(lst), bodyDimensions(bd), bodyWeight(bw), bodySim(bs), displayType(dt), 
 displaySize(ds), displayResolution(dr), featuresSensors(fs), platformOS(pos){}
 
+string Phone :: getOem() {
+    return this->oem;
+}
+

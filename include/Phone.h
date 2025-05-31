@@ -22,6 +22,9 @@ private:
 public:
   Phone(string o, string mod, string lann, string lst, string bd, string bw, string bs, string dt, 
   string ds, string dr, string fs, string pos);
+
+  string getOem();
+
 };
 
 #endif
