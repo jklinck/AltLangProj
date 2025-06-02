@@ -1,16 +1,17 @@
-#include <iostream>  // cout
-#include <fstream>  // ifstream
-#include <sstream>  // stringstream
+#include <iostream>  // for cout
+#include <fstream>  // for ifstream, for opening files
+#include <sstream>  // for stringstream, for reading files
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
-#include "../include/Phone.h"
+#include "../include/Cell.h"
+#include "../include/functions.h"
 using namespace std;
 
 int main(){
   
-  unordered_map<int, Phone*> phoneMap;
-  unordered_set<Phone*> phoneSet;
+  unordered_map<int, Cell*> phoneMap;
+  unordered_set<Cell*> phoneSet;
 
   ifstream myFile;
   myFile.open("data/cells.csv");
@@ -147,43 +148,25 @@ int main(){
     else{
       platformOS = line;
     }
-
-    // Phone* current = new Phone(oem, model, launchAnnounced, launchStatus, bodyDimensions, 
-    // bodyWeight, bodySim, displayType, displaySize, displayResolution, featuresSensors, 
-    // platformOS);
     
-      // phoneMap[mapCount] = new Phone(oem, model, launchAnnounced, launchStatus, bodyDimensions, 
-      // bodyWeight, bodySim, displayType, displaySize, displayResolution, featuresSensors, 
-      // platformOS);
-
-    phoneSet.insert(new Phone(oem, model, launchAnnounced, launchStatus, bodyDimensions, 
+    phoneMap[mapCount] = new Cell(oem, model, launchAnnounced, launchStatus, bodyDimensions, 
     bodyWeight, bodySim, displayType, displaySize, displayResolution, featuresSensors, 
-    platformOS));
+    platformOS);
 
-    // if(mapCount == 49) {
-    //   cout << "Oem: " << phoneMap[mapCount]->getOem() << endl;
-    //   cout << "Model: " << phoneMap[mapCount]->getModel() << endl;
-    //   cout << "Launch announced: " << phoneMap[mapCount]->getLaunchAnnounced() << endl;
-    //   cout << "Launch status: " << phoneMap[mapCount]->getLaunchStatus() << endl;
-    //   cout << "bodyDimensions: " << phoneMap[mapCount]->getBodyDimensions() << endl;
-    //   cout << "bodyWeight: " << phoneMap[mapCount]->getBodyWeight() << endl;
-    //   cout << "bodySim: " << phoneMap[mapCount]->getBodySim() << endl;
-    //   cout << "displayType: " << phoneMap[mapCount]->getDisplayType() << endl;
-    //   cout << "displaySize: " << phoneMap[mapCount]->getDisplaySize() << endl;
-    //   cout << "displayResolution: " << phoneMap[mapCount]->getDisplayResolution() << endl;
-    //   cout << "featuresSensors: " << phoneMap[mapCount]->getFeaturesSensors() << endl;
-    //   cout << "platformOS: " << phoneMap[mapCount]->getPlatformOS() << endl;
-    //   cout << endl;
-    // }
+    /*
+    the set below just exists for testing purposes to check if there were any duplicates
+    in the csv, which there are not
+    */
+    // phoneSet.insert(new Cell(oem, model, launchAnnounced, launchStatus, bodyDimensions, 
+    // bodyWeight, bodySim, displayType, displaySize, displayResolution, featuresSensors, 
+    // platformOS));
 
     mapCount++;
 
-    // if(mapCount == 60) {
-    //   break;
-    // }
   } // end of while loop
 
-  cout << "Set size = " << phoneSet.size() << endl;
+//   phoneMap[11]->toString();
+  cout << "The average weight of the phone's is: " << avgBodyWeight(phoneMap) << endl;
   
   myFile.close();  
   
