@@ -8,13 +8,13 @@ class Phone{
 private:
   string oem;
   string model;
-  string launchAnnounced;
+  int launchAnnounced;
   string launchStatus;
   string bodyDimensions;
-  string bodyWeight;
+  float bodyWeight;
   string bodySim;
   string displayType;
-  string displaySize;
+  float displaySize;
   string displayResolution;
   string featuresSensors;
   string platformOS;  
@@ -24,6 +24,40 @@ public:
   string ds, string dr, string fs, string pos);
 
   string getOem();
+  string cleanOem();
+
+  string getModel();
+  string cleanModel();
+
+  int getLaunchAnnounced();
+  int cleanLaunchAnnounced(const string& launch);
+
+  string getLaunchStatus();
+  string cleanLaunchStatus(const string& launch);
+
+  string getBodyDimensions();
+  string cleanBodyDimensions();
+
+  float getBodyWeight();
+  float cleanBodyWeight(const string& weight);
+
+  string getBodySim();
+  string cleanBodySim(const string& cleanSim);
+
+  string getDisplayType();
+  string cleanDisplayType();
+
+  float getDisplaySize();
+  float cleanDisplaySize(const string& size);
+
+  string getDisplayResolution();
+  string cleanDisplayResolution();
+
+  string getFeaturesSensors();
+  string cleanFeaturesSensors();
+
+  string getPlatformOS();
+  string cleanPlatformOS(const string& platform);
 
 };
 
