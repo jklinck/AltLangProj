@@ -181,7 +181,7 @@ int main(){
     */
 
 //   phoneMap[11]->toString();
-//   cout << endl << "Average phone weight: " << avgBodyWeight(phoneMap) << endl;
+  // cout << endl << "Average phone weight: " << avgBodyWeight(phoneMap, 1000) << endl;
 //   cout << "Average display size: " << avgDisplaySize(phoneMap) << " inches" << endl;
 //   cout << "Size before deleting phone object: " << phoneMap.size() << endl;
 //   deletePhone(5, phoneMap);
@@ -190,8 +190,6 @@ int main(){
 //   Cell* newPhone =  phoneMap[phoneMap.size() + 2];
 //   newPhone->toString();
   // cout << "Phones: " << countPhonesByOem(phoneMap, "Google") << endl;
-  countPhonesByOem(phoneMap, "Google");
-
 
   // ----------------------------------------------------------------------------------------------
 

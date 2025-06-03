@@ -6,7 +6,7 @@
 using namespace std;
 
 // returns the average body weight of all phones in the csv file
-float avgBodyWeight(const unordered_map<int, Cell*>& map);
+float avgBodyWeight(const unordered_map<int, Cell*>& map, int size);
 
 // deletes a from from the map
 void deletePhone(int phone, unordered_map<int, Cell*>& phoneMap);
@@ -17,11 +17,10 @@ void addPhone(int mapCount, unordered_map<int, Cell*>& phoneMap, const string& o
     const string& displaySize, const string& displayResolution, const string& featuresSensors, 
     const string& platformOS);
 
-float avgDisplaySize(const unordered_map<int, Cell*>& map);
+float avgDisplaySize(const unordered_map<int, Cell*>& map, int size);
 
 Cell* findPhoneByModel(const unordered_map<int, Cell*>& map, const string& model);
 
-void countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem);
-
+int countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem);
 
 #endif

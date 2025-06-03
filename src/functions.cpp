@@ -5,7 +5,7 @@
 #include <unordered_map>
 using namespace std;
 
-float avgBodyWeight(const unordered_map<int, Cell*>& map) {
+float avgBodyWeight(const unordered_map<int, Cell*>& map, int size) {
     float total = 0.0;
     float average = 0.0;
 
@@ -15,7 +15,7 @@ float avgBodyWeight(const unordered_map<int, Cell*>& map) {
             total += cell->getBodyWeight();
         }
     }
-    average = total / 1000;
+    average = total / size;
 
     float scale = pow(10.0, 2);
     average = round(average * scale) / scale;
@@ -35,11 +35,11 @@ void addPhone(int mapCount, unordered_map<int, Cell*>& phoneMap, const string& o
     Cell* cell = new Cell(oem, model, launchAnnounced, launchStatus, bodyDimensions, bodyWeight, 
     bodySim, displayType, displaySize, displayResolution, featuresSensors, platformOS);
 
-    int size = phoneMap.size();
+    mapCount++;
     phoneMap[mapCount] = cell;
 }
 
-float avgDisplaySize(const unordered_map<int, Cell*>& map) {
+float avgDisplaySize(const unordered_map<int, Cell*>& map, int size) {
     float total = 0.0;
     float average = 0.0;
 
@@ -49,7 +49,7 @@ float avgDisplaySize(const unordered_map<int, Cell*>& map) {
             total += cell->getDisplaySize();
         }
     }
-    average = total / 1000;
+    average = total / size;
 
     float scale = pow(10.0, 2);
     average = round(average * scale) / scale;
@@ -66,7 +66,7 @@ Cell* findPhoneByModel(const unordered_map<int, Cell*>& map, const string& model
     return nullptr; 
 }
 
-void countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem) {
+int countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem) {
     int count = 0;
     for (const auto& pair : map) {
         if (pair.second->getOem() == oem) { 
@@ -75,4 +75,5 @@ void countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem) {
         }
     }
     cout << "Total count for OEM " << oem << ": " << count << endl;
+    return count;
 }
