@@ -155,7 +155,8 @@ int main(){
 
     /*
     the set below just exists for testing purposes to check if there were any duplicates
-    in the csv, which there are not
+    in the csv, which there are not, you should add some otherwise what is the point of 
+    checking if there are duplicates
     */
     // phoneSet.insert(new Cell(oem, model, launchAnnounced, launchStatus, bodyDimensions, 
     // bodyWeight, bodySim, displayType, displaySize, displayResolution, featuresSensors, 
@@ -165,10 +166,42 @@ int main(){
 
   } // end of while loop
 
+
+
+    /*
+    The functions below can be run to complete the following:
+    1) Print a cell object to a string displaying all of it's column values.
+    2) Get the average body weight of all phones. 
+    3) Delete a phone from the phoneMap object.
+    4) Get the average display size of a phone in the CSV file.
+    5) Add a phone to the phoneMap.
+
+    To use the functions below you need to uncomment them. Make sure you do not uncomment anything
+    below the dotted line or you will really screw everything up. Seriously, don't do it.
+    */
+
 //   phoneMap[11]->toString();
-  cout << "The average weight of the phone's is: " << avgBodyWeight(phoneMap) << endl;
-  
-  myFile.close();  
+//   cout << endl << "Average phone weight: " << avgBodyWeight(phoneMap) << endl;
+//   cout << "Average display size: " << avgDisplaySize(phoneMap) << " inches" << endl;
+//   cout << "Size before deleting phone object: " << phoneMap.size() << endl;
+//   deletePhone(5, phoneMap);
+//   cout << "Size after deleting phone object: " << phoneMap.size() << endl << endl;
+//   addPhone(mapCount, phoneMap,"a","b","c","d","e","f","g","h","i","j","k","l");
+//   Cell* newPhone =  phoneMap[phoneMap.size() + 2];
+//   newPhone->toString();
+  // cout << "Phones: " << countPhonesByOem(phoneMap, "Google") << endl;
+  countPhonesByOem(phoneMap, "Google");
+
+
+  // ----------------------------------------------------------------------------------------------
+
+  myFile.close(); 
+
+  //   deallocate all allocated memory for Cell objects
+  for (auto& pair : phoneMap) {
+        delete pair.second; // Delete each Cell object
+  } 
   
   return 0;
 }
+

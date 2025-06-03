@@ -7,8 +7,15 @@
 using namespace std;
 
 // constructor
-Cell :: Cell(string o, string mod, string lann, string lst, string bd, string bw, string bs, string dt, 
-string ds, string dr, string fs, string plat) : oem(o), model(mod), launchAnnounced(cleanLaunchAnnounced(lann)), 
+// Cell :: Cell(string o, string mod, string lann, string lst, string bd, string bw, string bs, string dt, 
+// string ds, string dr, string fs, string plat) : oem(o), model(mod), launchAnnounced(cleanLaunchAnnounced(lann)), 
+// launchStatus(cleanLaunchStatus(lst)), bodyDimensions(bd), bodyWeight(cleanBodyWeight(bw)), bodySim(cleanBodySim(bs)), displayType(dt), 
+// displaySize(cleanDisplaySize(ds)), displayResolution(dr), featuresSensors(fs), platformOS(cleanPlatformOS(plat)){
+// }
+
+Cell :: Cell(const string& o, const string& mod, const string& lann, const string& lst, 
+const string& bd, const string& bw, const string& bs, const string& dt, const string& ds, 
+const string& dr, const string& fs, const string& plat) : oem(o), model(mod), launchAnnounced(cleanLaunchAnnounced(lann)), 
 launchStatus(cleanLaunchStatus(lst)), bodyDimensions(bd), bodyWeight(cleanBodyWeight(bw)), bodySim(cleanBodySim(bs)), displayType(dt), 
 displaySize(cleanDisplaySize(ds)), displayResolution(dr), featuresSensors(fs), platformOS(cleanPlatformOS(plat)){
 }
@@ -208,7 +215,7 @@ print a different line YOU will need to manually change the parameter in the
 method. The call will look like this `phoneMap[2]->toString`, you will need to manually change 
 the 2 in the brackets to whatever number you would like to substitute.
 */
-void Cell :: toString() {
+void Cell :: toString() const {
     cout << "Oem: " << this->oem << endl;
     cout << "Model: " << this->model << endl;
     cout << "Launch announce: " << this->launchAnnounced << endl;
@@ -222,6 +229,7 @@ void Cell :: toString() {
     cout << "Features sensors: " << this->featuresSensors << endl;
     cout << "Plaftorm OS: " << this->platformOS << endl;
 }
+
 
     
 

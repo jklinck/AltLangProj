@@ -20,8 +20,12 @@ private:
   string platformOS;  
 
 public:
-  Cell(string o, string mod, string lann, string lst, string bd, string bw, string bs, string dt, 
-  string ds, string dr, string fs, string pos);
+  // Cell(string o, string mod, string lann, string lst, string bd, string bw, string bs, string dt, 
+  // string ds, string dr, string fs, string pos);
+
+  Cell(const string& o, const string& mod, const string& lann, const string& lst, const string& bd, 
+  const string& bw, const string& bs, const string& dt, const string& ds, const string& dr, 
+  const string& fs, const string& pos);
 
   // 1
   string getOem();
@@ -82,7 +86,7 @@ public:
   // ------------------------------------------------------------------------------------------------
   // other methods
   
-  void toString();
+  void toString() const;
 
 };
 
