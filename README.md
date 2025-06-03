@@ -1,6 +1,13 @@
 # AltLangProj
 
-## 
+## Report
+
+I picked C++, I chose this language as I already know C and a couple OOP langauges and wanted to 
+see how they combined. I somewhat regret my decision as I see what people mean when they say C++ 
+can be a real pain. C++ handles OOP/file ingestion/conditions/etc. pretty much the same as Java 
+does wit the excpetion that C++ uses pointers. I used many libraries in this project: Catch2 
+testing library for tests, unorder_map for creating a hashmap, and cmath so I could perfrom 
+some rounding in functions.cpp. 
 
 ## Running the Project
 
