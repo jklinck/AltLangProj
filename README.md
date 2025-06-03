@@ -2,23 +2,16 @@
 
 ## Running the Project
 
-To run the project you can use the Makefile to create the executable by typing the word `make` 
-into the terminal. That will create the executable and you can run the project with `./main`. 
+To run the project type `make run` into the terminal. This will delete the previous executable (if 
+there is one), create a new executable, clear the terminal and run the project.
 
-If you recompile make sure to run `make clean` first to delete the previous executable. While this 
-is not always necessary, there is the possibilty that the new executable doesn't remove all of the 
-old build artifcats. 
+To run tests, cd into the tests directory and type `make run` into the terminal. This will delete 
+the previous executable (if there is one), create a new executable, clear the terminal and run the 
+project.
 
-You can also run `make run` which will delete the previous executable, create a new executable, 
-clear the terminal and run the project.
-
-You will need to download `Catch 2` testing framework to run the tests. Put the download into the 
-same directory as where you put the project. You can fine the download here: 
-https://github.com/catchorg/Catch2/releases/tag/v3.8.1
-Click on the zip file to download. Make sure to download this exact version since the file path 
-in the include statement in tests/test.cpp depends upon it. 
-
-To run tests you first have to compile the tests `make tests` and then run `./test`.
+While running the project and running tests looks similar and uses the same command, they are 
+coming from separate Makefiles. There is a main Makefile for the project and then the tests 
+directory has it's own Makefile. 
 
 ## Project Details
 

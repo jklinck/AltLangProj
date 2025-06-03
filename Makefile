@@ -4,7 +4,7 @@ main: src/main.cpp src/Cell.cpp src/functions.cpp
 
 # For compiling and linking the Catch2 tests
 tests: tests/test.cpp src/Cell.cpp src/functions.cpp
-	g++ -o tests tests/test.cpp src/Cell.cpp src/functions.cpp -Iinclude -I../Catch2/src/catch2 -I../Catch2/src/catch2/internal
+	g++ -o tests tests/test.cpp src/Cell.cpp src/functions.cpp -Iinclude -I../Catch2 -lCatch2
 
 # Delete the previous executable. 
 clean: 

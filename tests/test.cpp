@@ -1,45 +1,38 @@
-#define CATCH_CONFIG_MAIN
+// #define CATCH_CONFIG_MAIN
 #define CATCH_CONFIG_ENABLE_BENCHMARKING
-// #include "../Catch2/src/catch2/catch_all.hpp"
-// #include <catch2/catch_test_macros.hpp>
-// #include <catch2/catch_session.hpp>
+#define CATCH_CONFIG_RUNNER
 
-#include "../Catch2/src/catch2/catch_test_macros.hpp"
-#include "../Catch2/src/catch2/catch_session.hpp"
-
-
-
-#include "../include/Cell.h"
-#include "../include/functions.h"
-
-TEST_CASE("Make sure launchAnnounced is turned into an int, bodyWeight and displaySize are 
-turned into floats") {
-    Cell newCell = new Cell("a", "b", "5", "c", "d", "3.4", "e", "f", "5.7", "g", "h", "i");
-    REQUIRE(newCell.getLaunchAnnounced() == 5);
-    REQUIRE(newCell.bodyWeight() == 3.4);
-    REQUIRE(newCell.getDisplaySize() == 5.7);
-}
 
 // git submodule add https://github.com/catchorg/Catch2.git
 
+#include <catch2/catch_all.hpp>
+#include <cmath>
 
-/*
-I spent hours trying to get this thing working. I tried everything I possibly could and 
-have zero clue why it is still giving me errors about not finding files that I can clearly see 
-are there. Not mater what I do I always get some type of error like this:
+#include "../include/Cell.h"
+#include "../include/functions.h"
+using namespace std;
 
-g++ -o tests tests/test.cpp src/Cell.cpp src/functions.cpp -Iinclude -I../Catch2/src/catch2 -I../Catch2/src/catch2/internal
-In file included from tests/test.cpp:7:
-tests/../Catch2/src/catch2/catch_test_macros.hpp:11:10: fatal error: 'catch2/internal/catch_test_macro_impl.hpp' file not found
-   11 | #include <catch2/internal/catch_test_macro_impl.hpp>
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-1 error generated.
-make: *** [tests] Error 1
+// for comparing floats
+bool areEqual(float a, float b, float tolerance = 1e-6) {
+    return abs(a - b) < tolerance;
+}
 
-It says it can't find it but the file is clearly there. I altered my tests command in the Makefile 
-probably a hundred times to no avail. I've tried changing from andgle braket (pre-processor) includes 
-at the top of this file to the regular double quote includes. Every change I make will just give 
-another iteration of the error above. 
+TEST_CASE("Make sure launchAnnounced is turned into an int, bodyWeight and displaySize are \
+turned into floats.") {
+    Cell* newCell = new Cell("a", "b", "1999", "c", "d", "190 g (6.70 oz)", "e", "f", "3.5 inches, 34.9 cm", "g", "h", "i");
+    REQUIRE(newCell->getLaunchAnnounced() == 1999);
+    REQUIRE(areEqual(newCell->getBodyWeight(), 190.0));
+    REQUIRE(areEqual(newCell->getDisplaySize(), 3.5));
+    delete newCell;
+}
+
+int main(int argc, char** argv) {
+    Catch::Session session;
+    int returnCode = session.run(argc, argv);
+    return returnCode;
+}
 
 
-*/
+
+
+

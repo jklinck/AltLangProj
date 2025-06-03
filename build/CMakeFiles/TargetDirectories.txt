@@ -1,0 +1,3 @@
+/Users/josephklinck/Desktop/NSC/CSB310/AltLangProj/build/CMakeFiles/tests.dir
+/Users/josephklinck/Desktop/NSC/CSB310/AltLangProj/build/CMakeFiles/edit_cache.dir
+/Users/josephklinck/Desktop/NSC/CSB310/AltLangProj/build/CMakeFiles/rebuild_cache.dir
