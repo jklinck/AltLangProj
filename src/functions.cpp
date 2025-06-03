@@ -77,3 +77,31 @@ int countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem) {
     cout << "Total count for OEM " << oem << ": " << count << endl;
     return count;
 }
+
+pair<string, float> findHighestAverageBodyWeight(const unordered_map<int, Cell*>& map) {
+    unordered_map<string, float> oemWeightSum;
+    unordered_map<string, int> oemWeightCount;
+
+    for (const auto& pair : map) {
+        const string& oem = pair.second->getOem();
+        float bodyWeight = pair.second->getBodyWeight();
+        oemWeightSum[oem] += bodyWeight;
+        oemWeightCount[oem]++;
+    }
+
+    string highestOEM;
+    float highestAverage = 0.0f;
+    for (const auto& pair : oemWeightSum) {
+        const string& oem = pair.first;
+        float totalWeight = pair.second;
+        int count = oemWeightCount[oem];
+
+        float average = (count > 0) ? (totalWeight / count) : 0.0f;
+        if (average > highestAverage) {
+            highestOEM = oem;
+            highestAverage = average;
+        }
+    }
+
+    return make_pair(highestOEM, highestAverage);
+}

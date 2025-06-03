@@ -23,4 +23,6 @@ Cell* findPhoneByModel(const unordered_map<int, Cell*>& map, const string& model
 
 int countPhonesByOem(const unordered_map<int, Cell*>& map, const string& oem);
 
+pair<string, float> findHighestAverageBodyWeight(const unordered_map<int, Cell*>& cellMap);
+
 #endif

@@ -104,6 +104,26 @@ TEST_CASE("Finds a phone by it's model name.") {
     delete map[2];
 }
 
+// findHighestAverageBodyWeight()
+TEST_CASE("Finds the highest average body weight in the phone map.") {
+    unordered_map<int, Cell*> map;
+    map[1] = new Cell("OEM1", "b", "c", "d", "e", "150.0", "f", "g", "h", "i", "j", "k");
+    map[2] = new Cell("OEM1", "b", "c", "d", "e", "175.0", "f", "g", "h", "i", "j", "k");
+    map[3] = new Cell("OEM2", "b", "c", "d", "e", "190.0", "f", "g", "h", "i", "j", "k");
+    map[4] = new Cell("OEM2", "b", "c", "d", "e", "210.0", "f", "g", "h", "i", "j", "k");
+    map[5] = new Cell("OEM3", "b", "c", "d", "e", "160.0", "f", "g", "h", "i", "j", "k");
+
+    pair<string, float> result = findHighestAverageBodyWeight(map);
+    REQUIRE(result.first == "OEM2");
+    REQUIRE(areEqual(result.second, 200.0));
+    delete map[1];
+    delete map[2];
+    delete map[3];
+    delete map[4];
+    delete map[5];
+}
+
+
 int main(int argc, char** argv) {
     Catch::Session session;
     int returnCode = session.run(argc, argv);
